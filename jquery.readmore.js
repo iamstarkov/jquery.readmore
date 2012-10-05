@@ -51,6 +51,6 @@ $.fn.readmore = function (options) {
 	});
 };
 
-
+$('.readmore').readmore();
 // end of jquery plugin wrap
 })( jQuery, window, document );
