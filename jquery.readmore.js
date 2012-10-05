@@ -64,17 +64,16 @@ $.fn.readmore = function (options) {
 			On click to it delete it and run readmore again (go to 1 step)
 		 */
 		text.find('p').hide();
-		
+
 		link
 			.appendTo(first_p)
 			.on('click', function(event) {
 				first_p.remove();
 				text.find('p').show();
 				
-				event.preventDefault();
 
 				if (bidirectional) {
-					get_link(readmore_wrap_class, readmore_class, readmore_toggle_text )
+					get_link(readmore_wrap_class, readmore_class, readmore_toggle_text)
 						.appendTo(text)
 						.on('click', function(event) {
 							$(this).remove();
@@ -83,6 +82,8 @@ $.fn.readmore = function (options) {
 							event.preventDefault();
 						});
 				}
+				
+				event.preventDefault();
 			});
 
 
