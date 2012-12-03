@@ -14,10 +14,26 @@ function get_link(readmore_wrap_class, readmore_class, readmore_text ) {
 function get_first_p(text, sentences_number) {
 	var paragraph = text.find('p:first-child').clone();
 
+	/**
+	 * All sentences separators from this page:
+	 * http://en.wikipedia.org/wiki/Punctuation
+	 *
+	 * comma
+	 * ellipsis
+	 * exclamation mark
+	 * period
+	 * question mark
+	 * semicolon
+	 */
+		
+		 
+	var sentence_separators = /\,|\…|\!|\.|\?|\;/gm;
+
+
 	return paragraph
 			.text(
 				paragraph
-					.text().split('.', sentences_number)
+					.text().split(sentence_separators, sentences_number)
 					.join('. ') + '. '
 			);
 
